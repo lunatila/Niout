@@ -104,6 +104,14 @@ void MouseDrag(int x, int y)
     }
 }
 
+int menu(void) {
+    cout << "Escolha uma opcao de programa: \n<1> para jogar contra o computador. \n<2> para jogo com 2 jogadores." << endl;
+    cout << "opcao: ";
+    int in;
+    cin >> in;
+    return in;
+}
+
 int main(int argc, char** argv)
 {
     player1.playerColor = 1;
@@ -111,6 +119,9 @@ int main(int argc, char** argv)
     AI.playerColor = 0;
 
     srand(time(NULL));
+
+    cout << "\n          Bem vindo ao Jogo Niout!" << endl << endl;
+    int escolha = menu();
 
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);

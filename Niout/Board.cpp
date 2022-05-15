@@ -62,14 +62,14 @@ void Board::drawHorse(Player player, Horse horse)
     glBegin(GL_TRIANGLES);
     for (int i = 0; i <= 50; i++) {
         angle = 2 * pi * i / 50;
-        x = horse.initialPosition.radius * cos(angle) + horse.initialPosition.xCenter;
-        y = horse.initialPosition.radius * sin(angle) + horse.initialPosition.yCenter;
+        x = 0.05 * cos(angle) + horse.initialPosition.xCenter;
+        y = 0.05 * sin(angle) + horse.initialPosition.yCenter;
         glVertex2f(horse.initialPosition.xCenter, horse.initialPosition.yCenter);
         glVertex2f(x, y);
         i++;
         angle = 2 * pi * i / 50;
-        x = horse.initialPosition.radius * cos(angle) + horse.initialPosition.xCenter;
-        y = horse.initialPosition.radius * sin(angle) + horse.initialPosition.yCenter;
+        x = 0.05 * cos(angle) + horse.initialPosition.xCenter;
+        y = 0.05 * sin(angle) + horse.initialPosition.yCenter;
         glVertex2f(x, y);
         i--;
     }

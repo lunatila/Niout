@@ -19,15 +19,31 @@ struct Mouse {
 
     Circle spot(float x, float y)
     {
+        Circle hand(-1, 1, 0);
+
         for (int i = 0; i <= 28; i++) {
             float x2 = (x - niout.spot[i].xCenter) * (x - niout.spot[i].xCenter);
             float y2 = (y - niout.spot[i].yCenter) * (y - niout.spot[i].yCenter);
-            if (x2 + y2 < niout.spot[i].radius * niout.spot[i].radius)
+            if (x2 + y2 < niout.spot[i].radius * niout.spot[i].radius) {
                 return niout.spot[i];
+                break;
+            }
         }
+            return hand;
     }
-    Horse horse() {
+    Circle horse(float x, float y) 
+    {
+        Circle hand(-1, 1, 0);
 
+        for (int i = 0; i <= 28; i++) {
+            float x2 = (x - niout.spot[i].xCenter) * (x - niout.spot[i].xCenter);
+            float y2 = (y - niout.spot[i].yCenter) * (y - niout.spot[i].yCenter);
+            if (x2 + y2 < 0.05 * 0.05) {
+                return niout.spot[i];
+                break;
+            }
+        }
+        return hand;
     }
 };
 

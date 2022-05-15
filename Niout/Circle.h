@@ -21,7 +21,6 @@ public:
 		
 	}
 	Circle(float x, float y, float r) {
-		//index = ind;
 		xCenter = x;
 		yCenter = y;
 		radius = r;
@@ -38,7 +37,7 @@ public:
 	friend bool operator== (const Circle& lhs, const Circle& rhs)
 	{
 		return (lhs.xCenter == rhs.xCenter) &&
-			   (lhs.yCenter == lhs.yCenter) &&
+			   (lhs.yCenter == rhs.yCenter) &&
 			   (lhs.radius == rhs.radius) &&
 			   (lhs.index == rhs.index);
 	}

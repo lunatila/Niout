@@ -2,16 +2,12 @@
 #include <GL/glut.h>
 #include "Circle.h"
 
-class Horse
+struct Horse
 {
-
-public:
-	//Circle initialCircle;
-
 	bool willMove = false;
 	bool isOntheTable = false;
 
-	Circle initialPosition;
+	Circle initialPosition, finalPosition;
 	int atualSpot = 1, finalSpot;
 
 	int Weight = 1;

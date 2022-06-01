@@ -10,7 +10,7 @@ public:
 	float xCenter, yCenter;
 	float radius;
 	float pi = 3.1415;
-	int index = 0;
+	int index = 1;
 
 	Circle() {
 		float angle = 2 * pi * 6 / 20; // circulo inicial da corrida

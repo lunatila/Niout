@@ -5,20 +5,20 @@
 #include "Horse.h"
 using namespace std;
 
-class Player
+struct Player
 {
-	Horse horses[4];
-	bool playAgain = false;
+	bool playAgain = true;
 	int coinResult;
-public:
+	Horse horse;
+	int movement = 0;
 	int playerColor;
 
 	void tossCoins();
 
-	void MO(Horse horsesToMove[4]); //int numberOfHorses?
-	void NIOUT(Horse horsesToMove[4]);
-	void KUL(Horse horsesToMove[4]);
-	void KAI(Horse horsesToMove[4]);
-	void TO(Horse horsesToMove[4]);
+	void MO(); //int numberOfHorses?
+	void NIOUT();
+	void KUL();
+	void KAI();
+	void TO();
 };
 

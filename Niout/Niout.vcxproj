@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="GrafoTeste.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="Horse.cpp" />
     <ClCompile Include="Mouse.cpp" />
@@ -150,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="GrafoTeste.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="Horse.h" />
     <ClInclude Include="Mouse.h" />

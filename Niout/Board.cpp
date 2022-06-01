@@ -58,7 +58,7 @@ void Board::drawHorse(Player player, Horse horse)
     float x, y;
     float pi = 3.1415;
 
-    glColor3f(1, 1, 0);
+    glColor3f(horse.color, 1, 0);
     glBegin(GL_TRIANGLES);
     for (int i = 0; i <= 50; i++) {
         angle = 2 * pi * i / 50;

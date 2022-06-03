@@ -38,8 +38,10 @@ struct Board
                     pos = board.getVerticeByID(now);
                 }
             }
-            else
-                cout << "movimento invalido";
+            else {
+                cout << "movimento invalido" << endl;
+                return now;
+            }
         }
         return now;
     }

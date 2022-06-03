@@ -86,7 +86,7 @@ public:
 			addEdgeByID(i, i+1, 1);
 		}
 		addEdgeByID(5, 21, 2);
-		addEdgeByID(10, 23, 2);
+		addEdgeByID(10, 27, 2);
 		addEdgeByID(15, 29, 2);
 		addEdgeByID(21, 22, 1);
 		addEdgeByID(22, 25, 1);

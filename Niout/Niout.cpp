@@ -53,19 +53,20 @@ void MouseClick(int button, int state, int x, int y)
 
             int vaipraonde = 0;
 
-            if (player1.horse.atualSpot % 5 == 0) {
-                cout << "Quer continuar no circulo [0] ou ir para a cruz interna [1]?";
-                cin >> vaipraonde;
-            }
-
             if (player1.playAgain == false) {
                 cout << "Esta na vez do Player 2!" << endl;
             }
             else {
                 player1.playAgain = false;
-                player2.playAgain = true;
 
                 player1.tossCoins();
+
+                player2.playAgain = !player1.playAgain;
+
+                if (player1.horse.atualSpot % 5 == 0 && player1.horse.atualSpot != 25) {
+                    cout << "Quer continuar no circulo [0] ou ir para a cruz interna [1]?";
+                    cin >> vaipraonde;
+                }
 
                 for (int i = 0; i < 29; i++) {
                     if (board1.spot[i].index == board1.move(player1.horse.atualSpot, player1.movement, vaipraonde)) {
@@ -80,6 +81,16 @@ void MouseClick(int button, int state, int x, int y)
 
                 player1.horse.atualSpot = player1.horse.initialPosition.index;
             }
+
+            if (player2.horse.atualSpot == player1.horse.atualSpot) {
+                player2.horse.initialPosition = board1.spot[6];
+                board1.drawHorse(player2, player2.horse);
+                player2.horse.atualSpot = player2.horse.initialPosition.index;
+                cout << "Player 1 capturou a peça do Player 2!" << endl;
+            }
+
+            if (player1.horse.atualSpot == 20)
+                cout << "Player 1 é o vencedor!";
 
 
             /*if (board1.board.vertices.at(player1.horse.initialPosition.index - 1).hasNext()) {
@@ -128,19 +139,20 @@ void MouseClick(int button, int state, int x, int y)
         if (state == GLUT_DOWN) {
             int vaipraonde = 0;
 
-            if (player2.horse.atualSpot % 5 == 0) {
-                cout << "Quer continuar no circulo [0] ou ir para a cruz interna [1]?";
-                cin >> vaipraonde;
-            }
-
             if (player2.playAgain == false) {
                 cout << "Esta na vez do Player 1!" << endl;
             }
             else {
                 player2.playAgain = false;
-                player1.playAgain = true;
 
                 player2.tossCoins();
+
+                player1.playAgain = !player2.playAgain;
+
+                if (player2.horse.atualSpot % 5 == 0 && player1.horse.atualSpot != 25) {
+                    cout << "Quer continuar no circulo [0] ou ir para a cruz interna [1]?";
+                    cin >> vaipraonde;
+                }
 
                 for (int i = 0; i < 29; i++) {
                     if (board1.spot[i].index == board1.move(player2.horse.atualSpot, player2.movement, vaipraonde)) {
@@ -149,13 +161,23 @@ void MouseClick(int button, int state, int x, int y)
                     }
                 }
 
-                cout << "Player 1 andou " << player2.movement << " casas" << endl;
+                cout << "Player 2 andou " << player2.movement << " casas" << endl;
 
                 board1.drawHorse(player2, player2.horse);
 
                 player2.horse.atualSpot = player2.horse.initialPosition.index;
             }
 
+            if (player2.horse.atualSpot == player1.horse.atualSpot) {
+                player1.horse.initialPosition = board1.spot[6];
+                board1.drawHorse(player1, player1.horse);
+                player1.horse.atualSpot = player1.horse.initialPosition.index;
+                cout << "Player 2 capturou a peça do Player 1!" << endl;
+            }
+                
+
+            if (player2.horse.atualSpot == 20)
+                cout << "Player 2 é o vencedor!" << endl;
         }
     }
     glutPostRedisplay();
